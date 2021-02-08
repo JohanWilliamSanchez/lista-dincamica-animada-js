@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Estructura de Datos</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Lista Dinamica Animada
+        </h1>
+    </header>
+    <main>
+        <div id="contenedor">
+            
+        </div>
+    </main>
+    <footer>
+        <button class="btn-footer" id="btn-agregar">Agregar
+            <div class="pop-formulario" id="form-agregar">
+                <!-- <form > -->
+                    <input id="input-agregar" type="text" placeholder="Valor a agregar">
+                    <input id="input-indice-agregar" type="text" placeholder="indice">
+                    <input class="btn-summit" type="submit" value="Agregar" onclick="agregar()"/>
+                <!-- </form> -->
+            </div>
+        </button>
+        <button class="btn-footer"  id="btn-eliminar">Eliminar
+            <div class="pop-formulario" id="form-eliminar">
+                <!-- <form > -->
+                    <input id="input-eliminar" type="text" placeholder="Valor a eliminar">
+                    <input id="input-indice-eliminar" type="text" placeholder="indice">
+                    <input class="btn-summit" type="submit" value="Eliminar" onclick="eliminar()" />
+                <!-- </form> -->
+            </div>
+        </button>
+        <button class="btn-footer"  id="btn-modificar">Modificar
+            <div class="pop-formulario" id="form-modificar">
+                <!-- <form > -->
+                    <input id="input-modificar" type="text" placeholder="Nuevo valor">
+                    <input id="input-indice-modificar" type="text" placeholder="indice para modificar">
+                    <input class="btn-summit" type="submit" value="Modificar" onclick="modificar()" />
+                <!-- </form> -->
+            </div>
+        </button>
+    </footer>
+    <script src="./js/estructuraDatos.js"></script>
+</body>
+</html>

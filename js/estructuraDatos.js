@@ -137,10 +137,15 @@ function modificar() {
     }else if(indice>=0 && indice<lista.length){//cuando esta el indice dentro el rango de indices
         console.log('Esta en el rango de los indices')
         lista[indice]=valor
+        this.actualizarValorModificar(indice,valor)
     }else{//Cuando no esta el indice en el rango de los indices
         console.log(`El indice ${indice} no esta en el rango [0,${lista.length}]`)
     }
     console.log('Se oprimio modificar')
+}
+function actualizarValorModificar(indice, valor){
+    let nodo = document.getElementById(`nodo${indice}`)
+    nodo.innerHTML = `<h1>${valor}</h1><span id="sub-indice${indice}">${indice}</span>`
 }
 /**
  * Ene esta función se busca al momento de agregar un valor cambiar los indices de los nodos
@@ -169,29 +174,6 @@ function actualizarValoraAgregar(indice){
     let spanNegativo = document.getElementById('sub-indice-1')
     spanNegativo.id = `sub-indice${indice}`
 
-    for (let j = lista.length-2; j >= indice; j--) {
-
-        // console.log('sub indice ', j)
-        // let subIndice = document.getElementById('sub-indice'+j)
-        // console.log('sub tag',subIndice)
-        // subIndice.innerHTML = j+1
-        // subIndice.id = j+1
-        // let nodo = document.getElementById(`nodo${j}`)
-        // console.log(`Tag nodo${j}`,document.getElementById(`nodo${j}`))
-        // console.log('nodo.id antes',nodo.id)
-        // nodo.id = `nodo${j+1}`
-        // console.log('nodo.id despues',nodo.id)
-        // let flecha = document.getElementById(`flecha${j}`)
-        // flecha.id = `flecha${j+1}`
-    }
-    // let nodoNegativo = document.getElementById('nodo-1')
-    // nodoNegativo.id =`nodo${indice}`
-    // let spanNegativo = document.getElementById('sub-indice-1')
-    // spanNegativo.id = `sub-indice${indice}`
-    // if(indice>0){
-    //     let flechaNegativa = document.getElementById('flecha-1')
-    //     flechaNegativa.id = `flecha${indice}`
-    // }
 }
 function actualizarValoraEliminar(indice){
     if(indice!=lista.length-1){
@@ -208,14 +190,4 @@ function actualizarValoraEliminar(indice){
             }
         }
     }
-    // for (let index = indice; index < lista.length; index++) {
-    //     console.log('sub indice ', index)
-    //     let subIndice = document.getElementById(`sub-indice${index+1}`)
-    //     subIndice.innerHTML = index
-    //     subIndice.id = index
-    //     let nodo = document.getElementById(`nodo${index+1}`)
-    //     nodo.id = `nodo${index}`
-    //     let flecha = document.getElementById(`flecha${index}`)
-    //     flecha.id = `flecha${index-1}`
-    // }
 }

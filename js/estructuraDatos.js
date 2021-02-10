@@ -1,9 +1,9 @@
+import {Animacion} from "./Animacion.js"
 let lista = []
-
-
+// let miAnimcacion = new Animacion()
 //espacio.innerHTML= lista
 for (let index = 0; index < 5; index++) {
-    this.vistaAgregar(index,index+1)
+    vistaAgregar(index,index+1)
     lista[index] = index+1;
 }
 function agregar(){
@@ -16,18 +16,18 @@ function agregar(){
             console.log('indice < 0')
         } else if( isNaN(indice)){
             console.log('No hay indice')
-            this.vistaAgregar(lista.length,valor)
+            vistaAgregar(lista.length,valor)
             lista.push(valor)
         } else  if(indice==0){
             console.log('Indice igual a 0')
-            this.vistaAgregar(indice,valor)
+            vistaAgregar(indice,valor)
             lista.splice(indice,0,valor)
-            this.actualizarValoraAgregar(indice)
+            actualizarValoraAgregar(indice)
         } else if(indice <= lista.length && indice>=0){
             console.log('indice dentro del rango de la lista')
-            this.vistaAgregar(indice,valor)
+            vistaAgregar(indice,valor)
             lista.splice(indice,0,valor)
-            this.actualizarValoraAgregar(indice)
+            actualizarValoraAgregar(indice)
 
         }else{
             //Cuando el indice es mayor que el tamaño de la lista
@@ -80,7 +80,9 @@ function vistaAgregar(index, valor){
 }
 
 function eliminar(){
-    
+    // hola()
+    let miAnimcacion = new Animacion()
+    miAnimcacion.animacionAgregar()
     let valor = parseInt(document.getElementById('input-eliminar').value)
     let indice = parseInt(document.getElementById('input-indice-eliminar').value)
     // console.log('valor= ',valor)
@@ -92,13 +94,13 @@ function eliminar(){
     
             } else if(isNaN(indice)){
                 console.log('No hay indice')
-                this.vistaEliminar(lista.length-1)
+                vistaEliminar(lista.length-1)
                 lista.pop()
             } else if(indice <= lista.length && indice>=0){
                 console.log('indice dentro del rango de la lista')
-                this.vistaEliminar(indice)
+                vistaEliminar(indice)
                 lista.splice(indice,1)
-                this.actualizarValoraEliminar(indice)
+                actualizarValoraEliminar(indice)
             }else{
                 //Cuando el indice es mayor que el tamaño de la lista
                 // console.log('indice es mayor que el tamaño de la lista')
@@ -137,7 +139,7 @@ function modificar() {
     }else if(indice>=0 && indice<lista.length){//cuando esta el indice dentro el rango de indices
         console.log('Esta en el rango de los indices')
         lista[indice]=valor
-        this.actualizarValorModificar(indice,valor)
+        actualizarValorModificar(indice,valor)
     }else{//Cuando no esta el indice en el rango de los indices
         console.log(`El indice ${indice} no esta en el rango [0,${lista.length}]`)
     }
@@ -191,3 +193,12 @@ function actualizarValoraEliminar(indice){
         }
     }
 }
+/**
+ * Anterior mente se usaba el metodo onclick, pero al hacer una importación se debe agregar en la 
+ * etiqueta script del html <script type="module">...</script>. Al agregar el atributo type="module", el 
+ * evento ohnClick no permite definir la funciona a la que se estaba apuntando por ello, se debe agregar
+ * los addEvenlistenner cuando hacen click
+ */
+document.querySelector('#agregar').addEventListener('click',agregar)
+document.querySelector('#eliminar').addEventListener('click',eliminar)
+document.querySelector('#modificar').addEventListener('click',modificar)
